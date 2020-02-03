@@ -1,0 +1,30 @@
+<div class="create-invoice-form">
+	<h1>Create Invoice</h1>
+	<div class="form-field">
+		<label for="amount">Amount:</label>
+	<div class="ui input">
+		{{input
+				id="amount"
+				class="amount"
+				change=(action "onChange")
+				type="text"
+		}}
+	</div>
+	</div>
+	<div class="form-field">
+		<span>Created At:</span>
+		{{date-range-picker
+			class="ui input"
+			format='MM/DD/YYYY'
+			autoApply=true
+			applyOnHide=true
+			alwaysShowCalendars=true
+			singleDatePicker=true
+			hideAction=(action 'chooseDate')
+			applyAction=(action 'chooseDate')
+			ranges=createdAt
+		}}
+	</div>
+
+	{{#it-button class="create-invoice-btn" saveInvoice=(action 'saveInvoice')}}Save{{/it-button}}
+</div>
